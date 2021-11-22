@@ -1,0 +1,41 @@
+<div class="container-fluid agregar" style="margin:100px auto">
+    <div class="row form-agregar">
+        <div class="col-6 offset-3">
+            <h4
+                style="font-family:sans-serif ;border-radius: 15px; padding: 10px; background-color: rgb(111, 223, 0); color:rgb(255, 255, 255); text-align: center; font-weight: bold;">
+                Modificar el Producto</h4>
+            <form action="/admin/productos/modificar" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <input type="hidden" value="{{producto.id}}" name="id">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Producto" name="producto"
+                        value="{{producto.producto}}">
+                </div>
+                <div class="form-group">
+                    <p>
+                        <label style="font-weight: bold; text-shadow: none;">Imagen: <input type="file" name="imagen" id="imagen" /></label>
+                    </p>
+                    <p>
+                        <label> <input type="checkbox" name="img_delete" id="img_delete" value="1">
+                        Eliminar imagen actual?</label>
+                        <input type="hidden" name="img_original" value="{{producto.img_id}}">
+                    </p>
+                </div>
+                <div class="form-group">
+                    <textarea type="text" class="form-control" placeholder="Descripción del producto"
+                        name="descripcion">{{producto.descripcion}}</textarea>
+                </div>
+                <div class="form-group">
+                    <textarea type="text" class="form-control" placeholder="Ingredientes"
+                        name="ingredientes">{{producto.ingredientes}}</textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Modificar</button>
+            </form>
+            <br>
+            {{#each error}}
+            <p style="color: red; text-align:center;">{{message}}</p>
+            {{/each}}
+        </div>
+    </div>
+</div>

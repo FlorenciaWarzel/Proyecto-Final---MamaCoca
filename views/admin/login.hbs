@@ -1,0 +1,16 @@
+<div class="login">
+  <div class="form-log">
+    <form action="/admin/login" id="formulario" method="post" class="animate__animated animate__fadeInDown">
+      <h2 class="contact">LOGIN</h2>
+      <label for="usuario"></label>
+      <input type="text" class="form-control" id="usuario" placeholder="Usuario" name="usuario">
+      <label for="password"></label>
+      <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
+      <button type="submit" class="btn btn-primary">Entrar</button>
+      {{#if error}}
+      <p style="color: red; text-align:center; padding-top: 10px;">Usuario o contraseña incorrecto</p>
+      {{/if}}
+    </form>
+  </div>
+
+</div>

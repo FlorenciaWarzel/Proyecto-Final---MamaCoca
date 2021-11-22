@@ -1,0 +1,26 @@
+<div class="container-fluid agregar" style="margin:100px auto">
+    <div class="row form-agregar">
+        <div class="col-6 offset-3">
+            <h4 style="font-family:sans-serif ;border-radius: 15px; padding: 10px; background-color: rgb(111, 223, 0); color:rgb(255, 255, 255); text-align: center; font-weight: bold;">Agregar un nuevo producto</h4>
+            <form action="/admin/productos/agregar" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Producto" name="producto">
+            </div>
+            <div class="form-group">
+                <label style="font-weight: bold;">Imagen: <input type="file" name="imagen" id="imagen"/></label>
+            </div>
+            <div class="form-group">
+                <textarea type="text" class="form-control" placeholder="Descripción del producto" name= "descripcion"></textarea>
+            </div>
+            <div class="form-group">
+                <textarea type="text" class="form-control" placeholder="Ingredientes" name="ingredientes"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+            <br>
+            {{#if error}}
+                <p style="color: red; text-align:center;">{{message}}</p>
+            {{/if}}
+        </div>
+    </div>
+</div>

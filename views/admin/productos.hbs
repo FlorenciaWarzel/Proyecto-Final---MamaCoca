@@ -1,0 +1,67 @@
+<div class="container productos-hbs" style="margin-top: 100px;">
+    <div class="row">
+        <div class="col animate_animated animate__fadeInLeft">
+            <p class="text-right bienvenido">
+                <span>Bienvenido/a {{usuario}}!</span>
+                <a href="/admin/login/logout" class="btn btn-danger">Cerrar sesión <i
+                        class="fas fa-sign-out-alt"></i></a>
+            </p>
+        </div>
+    </div>
+    <div class="row" style="margin: 10px;">
+        <div class="col-8" style="margin-top: -9px;">
+            <h2>Listado de Productos</h2>
+        </div>
+        <div class="col-8 text-right" style="margin-left: 110px;">
+            <a href="/admin/productos/agregar" class="btn btn-success"><i class="fas fa-plus"></i>
+                Nuevo</a>
+        </div>
+
+        <div class="col-0 text-right" style="padding-left: 5px;">
+            <form class="form-inline" action="/admin/productos" method="get">
+                <input class="form-control" type="search" placeholder="Buscar" aria-label="Search" name="q" {{#if q}}
+                    value={{q}} {{/if}}>
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit"> <i class="fa fa-search"
+                        aria-hidden="true"></i></button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr class="thead-light">
+                        <th scope="col">#</th>
+                        <th scope="col">Título</th>
+                        <th scope="col" class="text-center">Imagen</th>
+                        <th scope="col" class="text-right">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each productos}}
+                    <tr>
+                        <th scope="row">{{id}}</th>
+                        <td>{{producto}}</td>
+                        <td class="text-center">{{{imagen}}}</td>
+                        <td class="text-right">
+                            <a href="/admin/productos/modificar/{{id}}" class="btn btn-secondary">
+                                <i class="fas fa-pencil-alt"></i>
+                            </a>
+                            <a href="/admin/productos/eliminar/{{id}}" class="btn btn-secondary"> <i
+                                    class="fas fa-trash">
+
+                                </i></a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+
+            </table>
+            {{#if is_search}}
+                {{#unless productos.length}}
+                    <p>No se encontraron resultados para "<b>{{q}}</b>"</p>
+                {{/unless}}
+            {{/if}}
+        </div>
+    </div>
+</div>
